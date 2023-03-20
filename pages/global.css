@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk&family=Space+Mono&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-black;
+  }
+  body {
+    @apply text-gray-200 font-sans;
+  }
+  ::selection {
+    @apply bg-white text-black;
+  }
+
+  ::-moz-selection {
+    @apply bg-white text-black;
+  }
+}
+
+pre div,
+pre div code {
+  background-color: rgb(11, 11, 11) !important;
+  font-family: "Space Mono", monospace !important;
+}
+
+pre div::selection {
+  background-color: rgb(20, 20, 20);
+}
