@@ -1,16 +1,13 @@
-import { Caret } from "@/components/Caret";
 import { IconButton } from "@/components/IconButton";
 import { Input } from "@/components/Input";
 import { Markdown } from "@/components/Markdown";
 import { ChatGPTMessage } from "@/utils/OpenAIStream";
 import * as React from "react";
-import ReactMarkdown from "react-markdown";
 
 interface indexProps {}
 
 const IndexPage: React.FC<indexProps> = ({}) => {
   const [loading, setLoading] = React.useState(false);
-  const [response, setResponse] = React.useState("");
   const [messages, setMessages] = React.useState<ChatGPTMessage[]>([]);
   const [prompt, setPrompt] = React.useState("");
 
@@ -24,7 +21,6 @@ const IndexPage: React.FC<indexProps> = ({}) => {
   };
 
   const generateResponse = async (prompt: string) => {
-    setResponse("");
     setLoading(true);
     const controller = new AbortController();
     const { signal } = controller;
@@ -107,6 +103,7 @@ const IndexPage: React.FC<indexProps> = ({}) => {
           <div ref={responseRef} />
         </div>
         <Input
+          //@ts-ignore
           ref={inputRef}
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
@@ -129,6 +126,7 @@ const IndexPage: React.FC<indexProps> = ({}) => {
           icon="close"
           label="Stop answer"
           size={24}
+          onClick={() => {}}
         />
       </div>
     </main>

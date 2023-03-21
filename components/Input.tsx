@@ -8,6 +8,7 @@ interface InputProps {
   loading?: boolean;
 }
 
+// @ts-ignore
 export const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> =
   forwardRef(({ value, onChange, onEnter, loading }, ref) => {
     return (
@@ -16,6 +17,7 @@ export const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> =
         <input
           className="bg-transparent focus:outline-none text-lg w-full"
           value={value}
+          //@ts-ignore
           ref={ref}
           placeholder=""
           onChange={onChange}
