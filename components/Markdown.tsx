@@ -17,6 +17,7 @@ export const Markdown: React.FC<MarkdownProps> = ({ markdown }) => {
           return !inline && match ? (
             <SyntaxHighlighter
               children={String(children).replace(/\n$/, "")}
+              //@ts-ignore
               style={theme}
               language={match[1]}
               PreTag="div"

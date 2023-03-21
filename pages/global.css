@@ -7,16 +7,28 @@
   html {
     @apply bg-black;
   }
-  body {
-    @apply text-gray-200 font-sans;
+  body,
+  input,
+  button {
+    @apply text-gray-100 font-sans;
   }
   ::selection {
-    @apply bg-white text-black;
+    @apply bg-gray-300 text-black;
   }
 
   ::-moz-selection {
-    @apply bg-white text-black;
+    @apply bg-gray-300 text-black;
   }
+  pre {
+    @apply grayscale;
+  }
+  ul {
+    @apply list-disc ml-6;
+  }
+}
+
+input {
+  caret: transparent block;
 }
 
 pre div,
@@ -27,4 +39,57 @@ pre div code {
 
 pre div::selection {
   background-color: rgb(20, 20, 20);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #282828;
+  border-radius: 9999px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #383838;
+}
+
+.loader {
+  width: 16px;
+  height: 12px;
+  background: linear-gradient(
+      #0000 calc(1 * 100% / 6),
+      #8e8e8e 0 calc(3 * 100% / 6),
+      #0000 0
+    ),
+    linear-gradient(
+      #0000 calc(2 * 100% / 6),
+      #8e8e8e 0 calc(4 * 100% / 6),
+      #0000 0
+    ),
+    linear-gradient(
+      #0000 calc(3 * 100% / 6),
+      #8e8e8e 0 calc(5 * 100% / 6),
+      #0000 0
+    );
+  background-size: 4px 400%;
+  background-repeat: no-repeat;
+  animation: matrix 1.2s infinite linear;
+}
+@keyframes matrix {
+  0% {
+    background-position: 0% 100%, 50% 100%, 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%, 50% 0%, 100% 0%;
+  }
 }
